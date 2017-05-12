@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">La Paz Reciclaje</string>
+    <string name="descripcionPepelCarton">En este contenedor de color azul, se deben depositar todo tipo de papeles y cartones, que podremos encontrar en envases de cartón como cajas o envases de alimentos.
+        Periódicos, revistas, papeles de envolver o folletos publicitarios entre otros, también se deben alojar en estos contenedores.
+        Para un uso efectivo de este tipo de contenedores, es recomendable plegar correctamente las cajas y envases para que permitan almacenar la mayor cantidad de este tipo de residuo.
+        \n\nEn algunas comunidades de vecinos nuevas o sistemas urbanos de contenedores que utilizan un sistema de recogida de residuos mediante conductos subterráneos, es importante tener en cuenta el tamaño de aquello que vamos a deshechar ya que originan con cierta regularidad atascos en los tubos ocasionando graves molestias.</string>
+    <string name="titulo_papelcarton">Papel Y Cartón</string>
+    <string name="titulo_plasticoslatas">Plásticos Y Latas</string>
+    <string name="descripcionPlasticosLatas">En los contenedores amarillos se deben depositar todo tipo de envases y productos fabricados con plásticos como botellas, envases de alimentación o bolsas.\n\n
+        Las latas de conservas y de refrescos también tienen que depositarse en estos contenedores, siendo este último, uno de los principales errores a la hora de reciclar.</string>
+    <string name="titulo_vidrio">Vidrio</string>
+    <string name="descripcionVidrio">En este contenedor se depositan envases de vidrio, como las botellas de bebidas alcohólicas. Importante no utilizar estos contenedores verdes para cerámica o cristal, ya que encarecen notablemente el reciclaje de este tipo de material.\n\n
+        En la medida de lo posible, deberemos eliminar cualquier tipo de material como tapones de corcho, metales o papel que puedan contener las botellas o envases. En los envases de vidrio deberemos retirar la tapa ya que esta deberá reciclarse por norma general en el contenedor amarillo.</string>
+    <string name="titulo_desechosPeligrosos">Desechos Peligrosos</string>
+    <string name="descripcionDesechosPeligrosos">Los contenedores rojos de reciclaje, aunque poco habituales, son muy útiles y uno de los que evitan una mayor contaminación ambiental. Podemos considerarlos para almacenar desechos peligrosos como baterias, pilas, insecticidas, aceites, aerosoles, o productos tecnológicos.\n\n
+    Dependiendo de cada zona, podemos encontrar adicionalmente algunos contenedores específicos para este tipo de materiales. Los más comunes son los contenedores de pilas que se encuentran en todo tipo de marquesinas o mobiliario urbano de algunas ciudades. En caso de tener dudas o no tener un contenedor de estas características cerca, deberemos contactar con nuestro ayuntamiento para que nos de las indicaciones correctas.\n\n
+    Son los más numerosos en la gran mayoría de nucleos urbanos, aunque con el tiempo y una mayor concienciación ecológica deberían ser un tipo de contenedor más.</string>
+    <string name="titulo_desechosOrganicos">Desechos Orgánicos</string>
+    <string name="descripcionDesechosOrganicos">Aunque es dificil encontrar un contenedor de color naranja, estos se utilizan exclusivamente para material orgánico. En caso de no disponer de este tipo de contenedor, como hemos comentado, utilizaríamos el gris.</string>
+    <string name="titulo_restoResiduos">Restos de Residuos</string>
+    <string name="descripcionRestoResiduos">En los contenedores de color gris, se depositan los residuos que no hemos visto hasta ahora, aunque principalmente se deposita en ellos materia biodegradable.</string>
+
+
+
+</resources>

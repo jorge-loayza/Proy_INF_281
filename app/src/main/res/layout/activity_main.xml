@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLASIFICACION DE LOS DESECHOS"
+        android:textSize="25sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textAlignment="center"
+        android:id="@+id/textView"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerInParent="true">
+
+        <Button
+            android:id="@+id/btnPapelCarton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Papel y Carton"
+            android:padding="15dp"
+            android:background="@color/azul"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/btnPlasticosLatas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Plasticos y Latas"
+            android:padding="15dp"
+            android:background="@color/amarillo"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"/>
+        <Button
+            android:id="@+id/btnVidrio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Vidrio"
+            android:padding="15dp"
+            android:background="@color/verde"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"/>
+        <Button
+            android:id="@+id/btnDesechosPeligrosos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Desechos Peligrosos"
+            android:padding="15dp"
+            android:background="@color/rojo"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"/>
+        <Button
+            android:id="@+id/btnDesechosOrganicos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Desechos Organicos"
+            android:padding="15dp"
+            android:background="@color/naranja"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"/>
+        <Button
+            android:id="@+id/btnRestosResiduos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Resto de Residuos"
+            android:padding="15dp"
+            android:background="@color/gris"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
