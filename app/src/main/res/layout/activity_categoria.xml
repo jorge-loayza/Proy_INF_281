@@ -13,9 +13,10 @@
             android:layout_height="wrap_content"
             android:text="@string/titulo_papelcarton"
             android:layout_gravity="center_horizontal"
-            android:textSize="30sp"
+            android:textSize="@dimen/size_titulo"
             android:textStyle="bold"
-            android:layout_margin="18dp"/>
+            android:layout_margin="18dp"
+            android:textColor="@color/primary_text"/>
 
         <TextView
             android:id="@+id/tvDescripcion"
@@ -23,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="@string/descripcionPepelCarton"
             android:layout_gravity="center_horizontal"
-            android:textSize="15sp"
+            android:textSize="@dimen/size_texto"
 
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"/>
@@ -56,8 +57,17 @@
             android:layout_height="wrap_content"
             android:text="Lugares de Reciclaje"
             android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textSize="@dimen/size_titulo"
+            android:textStyle="bold"
+            android:textColor="@color/primary_text"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvListadePuntos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPuntos"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"/>
 
     </LinearLayout>
 </ScrollView>

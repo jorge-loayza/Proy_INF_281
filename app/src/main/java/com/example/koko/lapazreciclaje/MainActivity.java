@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btnPapel,btnPlasticos,btnVidrio,btnDesechosPeligrosos,btnDesechosOrganicos,btnRestoResiduos;
+    private Button btnPapel,btnPlasticos,btnVidrio,btnDesechosPeligrosos,btnDesechosOrganicos,btnRestoResiduos,btnIniciarSesion,btnCrearCuenta;
 
     private Intent intent;
 
@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDesechosPeligrosos = (Button) findViewById(R.id.btnDesechosPeligrosos);
         btnDesechosOrganicos = (Button) findViewById(R.id.btnDesechosOrganicos);
         btnRestoResiduos = (Button) findViewById(R.id.btnRestosResiduos);
+        btnIniciarSesion = (Button) findViewById(R.id.btnIniciarSesion);
+        btnCrearCuenta = (Button) findViewById(R.id.btnCrearCuenta);
 
         btnPapel.setOnClickListener(this);
         btnPlasticos.setOnClickListener(this);
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDesechosPeligrosos.setOnClickListener(this);
         btnDesechosOrganicos.setOnClickListener(this);
         btnRestoResiduos.setOnClickListener(this);
+        btnIniciarSesion.setOnClickListener(this);
+        btnCrearCuenta.setOnClickListener(this);
 
     }
 
@@ -68,7 +72,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("categoria",6);
                 startActivity(intent);
                 break;
-
+            case R.id.btnIniciarSesion:
+                intent = new Intent(getApplicationContext(),LogInActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnCrearCuenta:
+                finish();
+                intent = new Intent(getApplicationContext(),RegistroUsuarioActivity.class);
+                startActivity(intent);
+                break;
         }
 
     }

@@ -16,7 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Categoria">
+        <activity android:name=".Categoria" />
+        <activity android:name=".MaterialActivity" />
+        <activity android:name=".RegistroUsuarioActivity" />
+        <activity android:name=".LogInActivity" />
+        <activity android:name=".PerfilUsuarioActivity">
+
+        </activity>
+        <activity android:name=".RedactarArticuloActivity">
 
         </activity>
     </application>

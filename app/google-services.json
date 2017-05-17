@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "816933745769",
+    "firebase_url": "https://proy-281.firebaseio.com",
+    "project_id": "proy-281",
+    "storage_bucket": "proy-281.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816933745769:android:ff63505f53069455",
+        "android_client_info": {
+          "package_name": "com.example.koko.lapazreciclaje"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816933745769-re5ac18up85tkee0ssienih7n1pl0r8p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.koko.lapazreciclaje",
+            "certificate_hash": "8c4f5cde366c0559763ce271c91058299da6c8c5"
+          }
+        },
+        {
+          "client_id": "816933745769-v34qun5sim7lahrdr7jce17s4furnogg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnZkkRsMjaXGDn8t5TnLoa1R1j7fx7LTQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816933745769-v34qun5sim7lahrdr7jce17s4furnogg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

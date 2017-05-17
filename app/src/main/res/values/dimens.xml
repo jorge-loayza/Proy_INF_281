@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_titulo">30dp</dimen>
+    <dimen name="size_texto">15dp</dimen>
+    <dimen name="size_titulo_card">20dp</dimen>
+
+</resources>

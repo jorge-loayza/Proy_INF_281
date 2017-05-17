@@ -19,7 +19,12 @@
     <string name="descripcionDesechosOrganicos">Aunque es dificil encontrar un contenedor de color naranja, estos se utilizan exclusivamente para material orgánico. En caso de no disponer de este tipo de contenedor, como hemos comentado, utilizaríamos el gris.</string>
     <string name="titulo_restoResiduos">Restos de Residuos</string>
     <string name="descripcionRestoResiduos">En los contenedores de color gris, se depositan los residuos que no hemos visto hasta ahora, aunque principalmente se deposita en ellos materia biodegradable.</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 
 
 </resources>

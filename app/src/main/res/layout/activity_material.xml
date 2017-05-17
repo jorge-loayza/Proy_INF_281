@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/tvTituloMaterial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Titulo Material"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:textSize="@dimen/size_titulo"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tvDescripcionMaterial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripcion material"
+            android:textColor="@color/primary_text"
+            android:layout_below="@+id/tvTituloMaterial"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/size_texto"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"/>
+        <ImageView
+            android:id="@+id/ivImagenMaterial"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/tvDescripcionMaterial"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="15dp"/>
+        <TextView
+            android:id="@+id/tvPuntos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Puntos de Reciclaje"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/size_titulo"
+            android:textColor="@color/primary_text"
+            android:layout_below="@id/ivImagenMaterial"
+            android:textStyle="bold"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvListadePuntos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPuntos"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+</ScrollView>
+
