@@ -1,13 +1,18 @@
 package com.example.koko.lapazreciclaje.Adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.koko.lapazreciclaje.Objetos.Articulo;
 import com.example.koko.lapazreciclaje.R;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -55,6 +60,23 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.Arti
         public void setDescripcion(String descripcion){
             tvDescripcionArticulo = (TextView) view.findViewById(R.id.tvDescripcionArticulo);
             tvDescripcionArticulo.setText(descripcion);
+        }
+        public void setImage(final Context ctx, final String image){
+            final ImageView articuloImagen = (ImageView) view.findViewById(R.id.ivArticulo);
+
+            //Picasso.with(ctx).load(image).into(tarjetsImagen);
+
+            Picasso.with(ctx).load(image).networkPolicy(NetworkPolicy.OFFLINE).into(articuloImagen, new Callback() {
+                @Override
+                public void onSuccess() {
+                }
+
+                @Override
+                public void onError() {
+                    Picasso.with(ctx).load(image).into(articuloImagen);
+                }
+            });
+
         }
     }
 }

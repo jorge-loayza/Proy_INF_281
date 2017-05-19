@@ -87,7 +87,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity implements View.O
                     databaseReference.child(user.getUid().toString()).setValue(usuario);
                     startActivity(new Intent(getApplicationContext(),PerfilUsuarioActivity.class));
                 }else{
-                    progressDialog.dismiss();git
+                    progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(),"No se pudo crear el Usuario",Toast.LENGTH_LONG).show();
                 }
             }

@@ -10,12 +10,6 @@ public class Articulo {
     public Articulo() {
     }
 
-    public Articulo(String titulo, String decripcion, String contenido, String id_usuario) {
-        this.titulo = titulo;
-        this.decripcion = decripcion;
-        this.contenido = contenido;
-        this.id_usuario = id_usuario;
-    }
 
     public String getTitulo() {
         return titulo;

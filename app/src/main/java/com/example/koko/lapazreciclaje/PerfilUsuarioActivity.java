@@ -101,6 +101,10 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
             protected void populateViewHolder(ArticulosAdapter.ArticulosViewHolder viewHolder, Articulo model, int position) {
                 viewHolder.setTitulo(model.getTitulo());
                 viewHolder.setDescripcion(model.getDecripcion());
+
+                viewHolder.setImage(getApplicationContext(),model.getImagen());
+
+
             }
         };
         rvListaArticulos.setAdapter(adapter);
