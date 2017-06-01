@@ -1,10 +1,12 @@
 package com.example.koko.lapazreciclaje.Objetos;
 
+import java.io.Serializable;
+
 /**
  * Created by koko on 18-05-17.
  */
 
-public class Material {
+public class Material implements Serializable {
     private String nombre,descripcion,categoria,imagen;
 
     public Material(String nombre, String descripcion, String categoria, String imagen) {

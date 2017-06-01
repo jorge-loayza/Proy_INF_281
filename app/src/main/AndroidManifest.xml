@@ -3,31 +3,34 @@
     package="com.example.koko.lapazreciclaje">
 
     <application
+        android:name=".LaPazReciclaje"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".LaPazReciclaje">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activities.NavigationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Categoria" />
-        <activity android:name=".MaterialActivity" />
-        <activity android:name=".RegistroUsuarioActivity" >
-        </activity>
-        <activity android:name=".LogInActivity" />
-        <activity android:name=".PerfilUsuarioActivity">
-
-        </activity>
-        <activity android:name=".RedactarArticuloActivity">
-
-        </activity>
+        <activity
+            android:name=".Activities.CategoriaActivity"
+            android:parentActivityName=".Activities.NavigationActivity" />
+        <activity android:name=".Activities.MaterialActivity" />
+        <activity
+            android:name=".Activities.RegistroUsuarioActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.LogInActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.RedactarArticuloActivity" />
+        <activity android:name=".Activities.PuntosActivity" />
+        <activity android:name=".Activities.LugaresActivity"
+            android:parentActivityName=".Activities.CategoriaActivity"></activity>
     </application>
 
 </manifest>

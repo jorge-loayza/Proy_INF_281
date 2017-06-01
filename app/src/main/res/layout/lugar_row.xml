@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/tvNombreLugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre del punto"
+                android:textSize="@dimen/size_titulo_card"
+                android:padding="5dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tvDireccionLugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Direccion"
+                android:textSize="@dimen/size_texto"
+                android:padding="5dp"
+                android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnIr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ir"
+            android:background="@color/colorAccent"
+            android:layout_gravity="center_vertical"
+            android:drawableRight="@drawable/ic_directions_white"
+            android:drawablePadding="10dp"
+            android:textColor="@color/colorIcons"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:layout_marginRight="15dp"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

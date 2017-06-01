@@ -24,6 +24,12 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.Arti
 
     List<Articulo> articulos;
 
+    Context context;
+
+    public ArticulosAdapter(List<Articulo> articulos, Context context) {
+        this.articulos = articulos;
+        this.context = context;
+    }
 
     @Override
     public ArticulosViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -37,6 +43,7 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.Arti
         Articulo articulo = articulos.get(position);
         holder.tvTituloArticulo.setText(articulo.getTitulo());
         holder.tvDescripcionArticulo.setText(articulo.getDecripcion());
+        holder.setImage(context,articulo.getImagen());
     }
 
     @Override
@@ -46,23 +53,28 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.Arti
 
     public static class ArticulosViewHolder extends RecyclerView.ViewHolder{
         private TextView tvTituloArticulo,tvDescripcionArticulo;
+        private ImageView articuloImagen;
         private View view;
 
         public ArticulosViewHolder(View itemView) {
             super(itemView);
             this.view = itemView;
+            tvTituloArticulo = (TextView) view.findViewById(R.id.tvTituloArticulo);
+            tvDescripcionArticulo = (TextView) view.findViewById(R.id.tvDescripcionArticulo);
+            articuloImagen = (ImageView) view.findViewById(R.id.ivArticulo);
+
         }
 
         public void setTitulo(String titulo){
-            tvTituloArticulo = (TextView) view.findViewById(R.id.tvTituloArticulo);
+
             tvTituloArticulo.setText(titulo);
         }
         public void setDescripcion(String descripcion){
-            tvDescripcionArticulo = (TextView) view.findViewById(R.id.tvDescripcionArticulo);
+
             tvDescripcionArticulo.setText(descripcion);
         }
         public void setImage(final Context ctx, final String image){
-            final ImageView articuloImagen = (ImageView) view.findViewById(R.id.ivArticulo);
+
 
             //Picasso.with(ctx).load(image).into(tarjetsImagen);
 

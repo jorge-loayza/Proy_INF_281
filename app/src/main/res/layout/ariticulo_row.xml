@@ -11,7 +11,7 @@
         <ImageView
             android:id="@+id/ivArticulo"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="150dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"/>
         <TextView
@@ -20,43 +20,16 @@
             android:layout_height="wrap_content"
             android:text="Titulo articulo"
             android:textSize="@dimen/size_titulo_card"
-            android:textColor="@color/primary_text"
-            android:layout_margin="8dp"/>
+            android:textColor="@color/colorPrimaryText"
+            android:layout_margin="10dp"/>
         <TextView
             android:id="@+id/tvDescripcionArticulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Descripcion Articulo"
             android:textSize="@dimen/size_titulo_card"
-            android:textColor="@color/secondary_text"
-            android:layout_marginBottom="5dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-            <ImageView
-                android:id="@+id/ivEditar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_border_color_black"
-                android:layout_margin="10dp"
-                android:layout_weight="1"/>
-            <ImageView
-                android:id="@+id/ivCompartir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_share_black"
-                android:layout_margin="10dp"
-                android:layout_weight="1"/>
-            <ImageView
-                android:id="@+id/ivEliminar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_delete_forever_red_a700_24dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"/>
-        </LinearLayout>
-
+            android:textColor="@color/colorSecondaryText"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

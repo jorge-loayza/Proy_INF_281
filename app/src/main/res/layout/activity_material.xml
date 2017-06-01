@@ -14,14 +14,14 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:textSize="@dimen/size_titulo"
-            android:textColor="@color/primary_text"
+            android:textColor="@color/colorPrimaryText"
             android:textStyle="bold"/>
         <TextView
             android:id="@+id/tvDescripcionMaterial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Descripcion material"
-            android:textColor="@color/primary_text"
+            android:textColor="@color/colorPrimaryText"
             android:layout_below="@+id/tvTituloMaterial"
             android:layout_centerHorizontal="true"
             android:textSize="@dimen/size_texto"
@@ -43,7 +43,7 @@
             android:text="Puntos de Reciclaje"
             android:layout_centerHorizontal="true"
             android:textSize="@dimen/size_titulo"
-            android:textColor="@color/primary_text"
+            android:textColor="@color/colorPrimaryText"
             android:layout_below="@id/ivImagenMaterial"
             android:textStyle="bold"/>
         <android.support.v7.widget.RecyclerView
