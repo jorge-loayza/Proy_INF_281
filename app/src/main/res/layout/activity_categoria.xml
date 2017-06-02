@@ -2,7 +2,8 @@
 <ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:paddingBottom="10dp">
+    android:paddingBottom="10dp"
+    android:background="@color/colorFondo">
     <LinearLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="@string/titulo_papelcarton"
             android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/size_titulo"
+            android:textSize="@dimen/large_text"
             android:textStyle="bold"
             android:layout_margin="18dp"
             android:textColor="@color/colorPrimaryText"/>
@@ -27,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="@string/descripcionPepelCarton"
             android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/size_texto"
+            android:textSize="@dimen/normal_text"
             />
         <ImageView
             android:id="@+id/ivDescripcion"

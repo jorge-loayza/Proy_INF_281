@@ -1,6 +1,7 @@
 package com.example.koko.lapazreciclaje.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.koko.lapazreciclaje.Activities.ArticuloActivity;
 import com.example.koko.lapazreciclaje.Objetos.Articulo;
 import com.example.koko.lapazreciclaje.R;
 import com.squareup.picasso.Callback;
@@ -41,6 +43,7 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.Arti
     @Override
     public void onBindViewHolder(ArticulosViewHolder holder, int position) {
         Articulo articulo = articulos.get(position);
+        holder.setArticulo(articulo);
         holder.tvTituloArticulo.setText(articulo.getTitulo());
         holder.tvDescripcionArticulo.setText(articulo.getDecripcion());
         holder.setImage(context,articulo.getImagen());
@@ -55,6 +58,7 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.Arti
         private TextView tvTituloArticulo,tvDescripcionArticulo;
         private ImageView articuloImagen;
         private View view;
+        private Articulo articulo;
 
         public ArticulosViewHolder(View itemView) {
             super(itemView);
@@ -62,7 +66,22 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.Arti
             tvTituloArticulo = (TextView) view.findViewById(R.id.tvTituloArticulo);
             tvDescripcionArticulo = (TextView) view.findViewById(R.id.tvDescripcionArticulo);
             articuloImagen = (ImageView) view.findViewById(R.id.ivArticulo);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(view.getContext(), ArticuloActivity.class);
+                    intent.putExtra("articulo",articulo);
+                    view.getContext().startActivity(intent);
+                }
+            });
+        }
 
+        public Articulo getArticulo() {
+            return articulo;
+        }
+
+        public void setArticulo(Articulo articulo) {
+            this.articulo = articulo;
         }
 
         public void setTitulo(String titulo){

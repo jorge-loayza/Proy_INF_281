@@ -4,13 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.koko.lapazreciclaje.Activities.LugaresActivity">
-
+    tools:context="com.example.koko.lapazreciclaje.Activities.LugaresActivity"
+    android:background="@color/colorFondo">
+    <TextView
+        android:id="@+id/tvLugaresDeAcopio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lugares de Acopio"
+        android:textSize="@dimen/large_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:textStyle="bold"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvLugares"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp">
+        android:paddingBottom="10dp"
+        android:layout_below="@id/tvLugaresDeAcopio">
 
     </android.support.v7.widget.RecyclerView>
 

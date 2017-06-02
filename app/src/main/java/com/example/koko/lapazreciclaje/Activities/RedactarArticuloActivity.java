@@ -114,14 +114,15 @@ public class RedactarArticuloActivity extends AppCompatActivity implements View.
         //VAlidar Datos!!!!
         if (imagenUri != null){
             progressDialog.show();
-
-            StorageReference ruta = storageReference.child("Imagenes_Articulos").child(user.getUid().toString());
+            final String key = databaseReferenceArticulo.push().getKey();
+            StorageReference ruta = storageReference.child("Imagenes_Articulos").child(key);
             ruta.putFile(imagenUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                    Articulo articulo = new Articulo(titulo,descripcion,contenido,downloadUrl.toString(),user.getUid().toString());
-                    databaseReferenceArticulo.push().setValue(articulo).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    Articulo articulo = new Articulo(titulo,descripcion,contenido,downloadUrl.toString(),user.getUid().toString(),key);
+                    databaseReferenceArticulo.child(key).setValue(articulo).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){

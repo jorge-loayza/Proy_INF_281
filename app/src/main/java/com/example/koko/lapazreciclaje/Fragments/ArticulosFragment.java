@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,11 +72,11 @@ public class ArticulosFragment extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Articulo articulo = dataSnapshot.getValue(Articulo.class);
-
+                Log.i("datos",articulo.getId_articulo());
                 Boolean w = true;
-                for (Articulo con :
+                for (Articulo art :
                         listaArticulos) {
-                    if (con.getId_usuario().equals(articulo.getId_usuario())){
+                    if (articulo.getId_articulo().equals(art.getId_articulo())){
                         w= false;
                     }
                 }
@@ -95,7 +96,6 @@ public class ArticulosFragment extends Fragment {
             public void onChildRemoved(DataSnapshot dataSnapshot) {
                 mostrarArticulos();
             }
-
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 

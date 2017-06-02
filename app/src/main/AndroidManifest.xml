@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.NavigationActivity">
+        <activity
+            android:name=".Activities.NavigationActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,18 +21,29 @@
         </activity>
         <activity
             android:name=".Activities.CategoriaActivity"
-            android:parentActivityName=".Activities.NavigationActivity" />
-        <activity android:name=".Activities.MaterialActivity" />
+            android:parentActivityName=".Activities.NavigationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.MaterialActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.RegistroUsuarioActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.LogInActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activities.RedactarArticuloActivity" />
+        <activity
+            android:name=".Activities.RedactarArticuloActivity"
+            android:parentActivityName=".Activities.NavigationActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".Activities.PuntosActivity" />
-        <activity android:name=".Activities.LugaresActivity"
-            android:parentActivityName=".Activities.CategoriaActivity"></activity>
+        <activity
+            android:name=".Activities.LugaresActivity"
+            android:parentActivityName=".Activities.CategoriaActivity" />
+        <activity android:name=".Activities.ArticuloActivity"
+            android:parentActivityName=".Activities.NavigationActivity"></activity>
     </application>
 
 </manifest>

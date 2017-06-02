@@ -17,7 +17,7 @@ public class CategoriaActivity extends AppCompatActivity implements View.OnClick
     private TextView tvTitulo,tvDescripcion;
     private ImageView ivDescripcion;
     private Button btnLugares;
-    private int categoria;
+    private String categoria;
     private Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,35 +31,36 @@ public class CategoriaActivity extends AppCompatActivity implements View.OnClick
         btnLugares = (Button) findViewById(R.id.btnLugares);
         btnLugares.setOnClickListener(this);
 
-        categoria = getIntent().getIntExtra("categoria",1);
+        categoria = getIntent().getStringExtra("categoria");
 
         switch (categoria){
-            case 1:
+            case "1":
                 tvTitulo.setText(R.string.titulo_papelcarton);
                 tvDescripcion.setText(R.string.descripcionPepelCarton);
                 ivDescripcion.setImageResource(R.drawable.papel_carton);
                 break;
-            case 2:
+            case "2":
                 tvTitulo.setText(R.string.titulo_plasticoslatas);
                 tvDescripcion.setText(R.string.descripcionPlasticosLatas);
                 ivDescripcion.setImageResource(R.drawable.plasticos_latas);
                 break;
-            case 3:
+            case "3":
                 tvTitulo.setText(R.string.titulo_vidrio);
                 tvDescripcion.setText(R.string.descripcionVidrio);
                 ivDescripcion.setImageResource(R.drawable.vidrio);
                 break;
-            case 4:
+            case "4":
                 tvTitulo.setText(R.string.titulo_desechosPeligrosos);
                 tvDescripcion.setText(R.string.descripcionDesechosPeligrosos);
                 ivDescripcion.setImageResource(R.drawable.desechos_peligrosos);
                 break;
-            case 5:
+            case "5":
                 tvTitulo.setText(R.string.titulo_desechosOrganicos);
                 tvDescripcion.setText(R.string.descripcionDesechosOrganicos);
                 ivDescripcion.setImageResource(R.drawable.desechos_organicos);
+                btnLugares.setVisibility(View.GONE);
                 break;
-            case 6:
+            case "6":
                 tvTitulo.setText(R.string.titulo_restoResiduos);
                 tvDescripcion.setText(R.string.descripcionRestoResiduos);
                 ivDescripcion.setImageResource(R.drawable.resto_residuos);
@@ -73,9 +74,8 @@ public class CategoriaActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
      switch (v.getId()){
          case R.id.btnLugares:
-             Log.i("cat","click");
              intent = new Intent(getApplicationContext(),LugaresActivity.class);
-             intent.putExtra("categoria",categoria+"");
+             intent.putExtra("categoria",categoria);
              startActivity(intent);
              break;
      }

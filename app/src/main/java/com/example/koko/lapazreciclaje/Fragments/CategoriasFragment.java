@@ -58,32 +58,32 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
         switch (v.getId()){
             case R.id.btnPapelCarton :
                 intent = new Intent(getContext(),CategoriaActivity.class);
-                intent.putExtra("categoria",1);
+                intent.putExtra("categoria","1");
                 startActivity(intent);
                 break;
             case R.id.btnPlasticosLatas :
                 intent = new Intent(getContext(),CategoriaActivity.class);
-                intent.putExtra("categoria",2);
+                intent.putExtra("categoria","2");
                 startActivity(intent);
                 break;
             case R.id.btnVidrio :
                 intent = new Intent(getContext(),CategoriaActivity.class);
-                intent.putExtra("categoria",3);
+                intent.putExtra("categoria","3");
                 startActivity(intent);
                 break;
             case R.id.btnDesechosPeligrosos :
                 intent = new Intent(getContext(),CategoriaActivity.class);
-                intent.putExtra("categoria",4);
+                intent.putExtra("categoria","4");
                 startActivity(intent);
                 break;
             case R.id.btnDesechosOrganicos :
                 intent = new Intent(getContext(),CategoriaActivity.class);
-                intent.putExtra("categoria",5);
+                intent.putExtra("categoria","5");
                 startActivity(intent);
                 break;
             case R.id.btnRestosResiduos :
                 intent = new Intent(getContext(),CategoriaActivity.class);
-                intent.putExtra("categoria",6);
+                intent.putExtra("categoria","6");
                 startActivity(intent);
                 break;
             case R.id.btnIniciarSesion:

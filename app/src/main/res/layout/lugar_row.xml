@@ -11,22 +11,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1">
             <TextView
                 android:id="@+id/tvNombreLugar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre del punto"
-                android:textSize="@dimen/size_titulo_card"
+                android:text="Nombre: "
+                android:textSize="@dimen/normal_text"
                 android:padding="5dp"
                 android:textStyle="bold"/>
             <TextView
                 android:id="@+id/tvDireccionLugar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Direccion"
-                android:textSize="@dimen/size_texto"
+                android:text="Dirección: "
+                android:textSize="@dimen/normal_text"
                 android:padding="5dp"
                 android:layout_marginLeft="20dp"/>
         </LinearLayout>

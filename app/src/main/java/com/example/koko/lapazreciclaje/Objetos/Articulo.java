@@ -1,11 +1,13 @@
 package com.example.koko.lapazreciclaje.Objetos;
 
+import java.io.Serializable;
+
 /**
  * Created by koko on 18-05-17.
  */
 
-public class Articulo {
-    private String titulo,decripcion,contenido,imagen,id_usuario;
+public class Articulo implements Serializable{
+    private String titulo,decripcion,contenido,imagen,id_usuario,id_articulo;
 
     public Articulo() {
     }
@@ -15,12 +17,13 @@ public class Articulo {
         return titulo;
     }
 
-    public Articulo(String titulo, String decripcion, String contenido, String imagen, String id_usuario) {
+    public Articulo(String titulo, String decripcion, String contenido, String imagen, String id_usuario, String id_articulo) {
         this.titulo = titulo;
         this.decripcion = decripcion;
         this.contenido = contenido;
         this.imagen = imagen;
         this.id_usuario = id_usuario;
+        this.id_articulo = id_articulo;
     }
 
     public String getId_usuario() {
@@ -57,5 +60,13 @@ public class Articulo {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public String getId_articulo() {
+        return id_articulo;
+    }
+
+    public void setId_articulo(String id_articulo) {
+        this.id_articulo = id_articulo;
     }
 }

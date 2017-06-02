@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.koko.lapazreciclaje.Fragments.ArticulosFragment">
+    tools:context="com.example.koko.lapazreciclaje.Fragments.ArticulosFragment"
+    android:background="@color/colorFondo">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvListaArticulos"

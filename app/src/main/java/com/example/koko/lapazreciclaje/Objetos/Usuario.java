@@ -5,21 +5,18 @@ package com.example.koko.lapazreciclaje.Objetos;
  */
 
 public class Usuario {
-    public Usuario(String nombres, String apellidos) {
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-    }
 
-    private String nombres,apellidos,correo_electronico,telefono;
+
+    private String nombres,apellidos,correo_electronico,id_usuario;
 
     public Usuario() {
     }
 
-    public Usuario(String nombres, String apellidos, String correo_electronico, String telefono) {
+    public Usuario(String nombres, String apellidos, String correo_electronico, String id_usuario) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correo_electronico = correo_electronico;
-        this.telefono = telefono;
+        this.id_usuario = id_usuario;
     }
 
     public String getNombres() {
@@ -46,11 +43,11 @@ public class Usuario {
         this.correo_electronico = correo_electronico;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getId_usuario() {
+        return id_usuario;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setId_usuario(String id_usuario) {
+        this.id_usuario = id_usuario;
     }
 }

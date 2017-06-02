@@ -2,12 +2,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.koko.lapazreciclaje.Fragments.AcercaFragment">
+    tools:context="com.example.koko.lapazreciclaje.Fragments.AcercaFragment"
+    android:background="@color/colorFondo">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/icono_app" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="@string/app_name"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/large_text" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Desarrollado por:"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jorge A. Loayza .R"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|bottom"
+            android:text="Versión 0.1.0"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:textSize="@dimen/normal_text"/>
+    </RelativeLayout>
+
 
 </FrameLayout>

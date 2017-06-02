@@ -34,7 +34,7 @@ public class LugaresActivity extends AppCompatActivity {
         categoria = getIntent().getStringExtra("categoria");
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        queryLugares = firebaseDatabase.getReference().child("lugare_reciclaje").orderByChild("categoria").equalTo(categoria);
+        queryLugares = firebaseDatabase.getReference().child("lugar_reciclaje").orderByChild("categoria").equalTo(categoria);
         listaDeLugares = new ArrayList<>();
         rvLugares = (RecyclerView) findViewById(R.id.rvLugares);
         lugaresAdapter = new LugaresAdapter(listaDeLugares);
@@ -49,7 +49,6 @@ public class LugaresActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 LugarReciclaje lugar = dataSnapshot.getValue(LugarReciclaje.class);
-                Log.i("dato",lugar.getNombre());
                 listaDeLugares.add(lugar);
                 lugaresAdapter.notifyDataSetChanged();
 

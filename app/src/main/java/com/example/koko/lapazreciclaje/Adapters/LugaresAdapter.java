@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.koko.lapazreciclaje.Objetos.LugarReciclaje;
@@ -50,13 +51,15 @@ public class LugaresAdapter extends RecyclerView.Adapter<LugaresAdapter.LugaresV
         private View view;
         private TextView tvNombreLugar,tvDireccionLugar;
         private LugarReciclaje lugarReciclaje;
+        private Button btnIR;
 
         public LugaresViewHolder(View itemView) {
             super(itemView);
             this.view = itemView;
             tvNombreLugar = (TextView) view.findViewById(R.id.tvNombreLugar);
             tvDireccionLugar = (TextView) view.findViewById(R.id.tvDireccionLugar);
-            view.setOnClickListener(new View.OnClickListener() {
+            btnIR = (Button) view.findViewById(R.id.btnIr);
+            btnIR.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //"google.navigation:q=-16.499438,-68.121945&mode=w"

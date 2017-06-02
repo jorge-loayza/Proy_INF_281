@@ -159,9 +159,9 @@ public class PerfilFragment extends Fragment {
                 Articulo articulo = dataSnapshot.getValue(Articulo.class);
 
                 Boolean w = true;
-                for (Articulo con :
+                for (Articulo art :
                         listaArticulos) {
-                    if (con.getId_usuario().equals(articulo.getId_usuario())){
+                    if (articulo.getId_articulo().equals(art.getId_articulo())){
                         w= false;
                     }
                 }

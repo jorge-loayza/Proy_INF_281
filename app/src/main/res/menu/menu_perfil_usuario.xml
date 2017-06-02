@@ -10,7 +10,7 @@
     </item>
     <item android:id="@+id/salir"
         android:title="Salir"
-        app:showAsAction="always"
+        app:showAsAction="never"
         android:icon="@drawable/ic_power_settings_new_white">
     </item>
 

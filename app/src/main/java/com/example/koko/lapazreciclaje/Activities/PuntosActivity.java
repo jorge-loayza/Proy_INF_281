@@ -88,7 +88,7 @@ public class PuntosActivity extends AppCompatActivity implements View.OnClickLis
         String catLug = categoriaLugar.getText().toString().trim();
 
         LugarReciclaje punto = new LugarReciclaje(nombre,dir,latitud,longiitud,catLug);
-        databaseReference.child("lugare_reciclaje").push().setValue(punto).addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference.child("lugar_reciclaje").push().setValue(punto).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
@@ -104,7 +104,7 @@ public class PuntosActivity extends AppCompatActivity implements View.OnClickLis
 
 
         if (imagenUri != null){
-            StorageReference ruta = storageReference.child("Imagenes_Tarjetas").child(imagenUri.getLastPathSegment());
+            StorageReference ruta = storageReference.child("Imagenes_Materiales").child(imagenUri.getLastPathSegment());
             ruta.putFile(imagenUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
