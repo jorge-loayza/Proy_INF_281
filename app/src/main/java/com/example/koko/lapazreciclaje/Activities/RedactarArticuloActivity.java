@@ -1,15 +1,24 @@
 package com.example.koko.lapazreciclaje.Activities;
 
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.koko.lapazreciclaje.Objetos.Articulo;
@@ -25,14 +34,19 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
+
 public class RedactarArticuloActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final int GALLERY_REQUEST = 1;
-    Uri imagenUri = null;
-    private EditText etTituloArticulo,etDecripcionArticulo,etContenidoArticulo;
-    private ImageView ivImagenArticulo;
-    private Button btnAgregarImagen,btnCrearArticulo;
+    private static final int PICKFILE_REQUEST_CODE = 12;
+    private Uri imagenUri = null;
+    private Uri pdfUri = null;
+    private EditText etTituloArticulo,etDecripcionArticulo;
 
+    private Button btnCrearArticulo,btnCancelarRedaccion,btnAdicionarPDF;
+    private ImageButton btnAgregarImagen;
+    private TextView tvNombrePDf;
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReferenceArticulo;
@@ -48,6 +62,12 @@ public class RedactarArticuloActivity extends AppCompatActivity implements View.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_redactar_articulo);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarRedactarArticulo);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReferenceArticulo = firebaseDatabase.getReference().child("articulo");
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -67,12 +87,17 @@ public class RedactarArticuloActivity extends AppCompatActivity implements View.
         progressDialog = new ProgressDialog(this);
         etTituloArticulo = (EditText) findViewById(R.id.etTituloArticulo);
         etDecripcionArticulo = (EditText) findViewById(R.id.etDecripcionArticulo);
-        etContenidoArticulo = (EditText) findViewById(R.id.etContenidoArticulo);
-        ivImagenArticulo = (ImageView) findViewById(R.id.ivImagenArticulo);
-        btnAgregarImagen = (Button) findViewById(R.id.btnAgregarImagen);
+
+        tvNombrePDf = (TextView) findViewById(R.id.tvNombrePDf);
+
+        btnAgregarImagen = (ImageButton) findViewById(R.id.btnAgregarImagen);
         btnCrearArticulo = (Button) findViewById(R.id.btnCrearArticulo);
+        btnCancelarRedaccion = (Button) findViewById(R.id.btnCancelarRedaccion);
+        btnAdicionarPDF = (Button) findViewById(R.id.btnAdicionarPDF);
         btnAgregarImagen.setOnClickListener(this);
         btnCrearArticulo.setOnClickListener(this);
+        btnCancelarRedaccion.setOnClickListener(this);
+        btnAdicionarPDF.setOnClickListener(this);
 
     }
 
@@ -87,6 +112,22 @@ public class RedactarArticuloActivity extends AppCompatActivity implements View.
             case R.id.btnCrearArticulo:
                 registrarArticulo();
                 break;
+            case R.id.btnCancelarRedaccion:
+                finish();
+                break;
+            case R.id.btnAdicionarPDF:
+                Intent intent2 = new Intent(Intent.ACTION_GET_CONTENT);
+                intent2.setType("application/pdf");
+
+                try {
+                    startActivityForResult(intent2, PICKFILE_REQUEST_CODE);
+                }
+                catch (ActivityNotFoundException e) {
+                    Toast.makeText(getApplicationContext(),
+                            "Necesita una aplicacion para ver documentos pdf.",
+                            Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
     }
 
@@ -94,10 +135,28 @@ public class RedactarArticuloActivity extends AppCompatActivity implements View.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK){
 
-            imagenUri = data.getData();
-            ivImagenArticulo.setImageURI(imagenUri);
+        switch (requestCode){
+            case GALLERY_REQUEST:
+                if (resultCode == RESULT_OK && data != null) {
+                    imagenUri = data.getData();
+                    btnAgregarImagen.setImageURI(imagenUri);
+                    btnAgregarImagen.setAdjustViewBounds(true);
+                    btnAgregarImagen.setLayoutParams( new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,300));
+                }
+                break;
+            case PICKFILE_REQUEST_CODE:
+                if (resultCode == RESULT_OK && data != null){
+                    if (!data.getData().getLastPathSegment().endsWith(".pdf")){
+                        Toast.makeText(getApplicationContext(),"Debe seleccionar un documento PDF",Toast.LENGTH_LONG).show();
+                    }else{
+                        pdfUri = data.getData();
+                        tvNombrePDf.setText(pdfUri.getLastPathSegment());
+                        tvNombrePDf.setVisibility(View.VISIBLE);
+                        Toast.makeText(getApplicationContext(),"Se agrego un PDF al artículo.",Toast.LENGTH_LONG).show();
+                    }
+                    break;
+                }
 
         }
     }
@@ -107,9 +166,7 @@ public class RedactarArticuloActivity extends AppCompatActivity implements View.
         progressDialog.setMessage("Registrando Articulo...");
         final String titulo = etTituloArticulo.getText().toString().trim();
         final String descripcion = etDecripcionArticulo.getText().toString().trim();
-        final String contenido = etContenidoArticulo.getText().toString().trim();
         final FirebaseUser user = firebaseAuth.getCurrentUser();
-
 
         //VAlidar Datos!!!!
         if (imagenUri != null){
@@ -118,24 +175,34 @@ public class RedactarArticuloActivity extends AppCompatActivity implements View.
             StorageReference ruta = storageReference.child("Imagenes_Articulos").child(key);
             ruta.putFile(imagenUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
-
-                    Articulo articulo = new Articulo(titulo,descripcion,contenido,downloadUrl.toString(),user.getUid().toString(),key);
-                    databaseReferenceArticulo.child(key).setValue(articulo).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()){
-                                progressDialog.dismiss();
-                                finish();
-                                Toast.makeText(getApplicationContext(),"Se registro el articulo",Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(getApplicationContext(),NavigationActivity.class));
-                            }else {
-                                progressDialog.dismiss();
-                                Toast.makeText(getApplicationContext(),"No se registro el articulo",Toast.LENGTH_LONG).show();
+                public void onSuccess(final UploadTask.TaskSnapshot taskSnapshot) {
+                    final Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                    if (pdfUri!=null){
+                        StorageReference rutaPDF = storageReference.child("PDF_Articulos").child(key);
+                        rutaPDF.putFile(pdfUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot2) {
+                                Uri pdfDownloadUrl = taskSnapshot2.getDownloadUrl();
+                                Articulo articulo = new Articulo(titulo,descripcion,downloadUrl.toString(),user.getUid().toString(),key,pdfDownloadUrl.toString());
+                                databaseReferenceArticulo.child(key).setValue(articulo).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()){
+                                            progressDialog.dismiss();
+                                            finish();
+                                            Toast.makeText(getApplicationContext(),"Se registro el articulo",Toast.LENGTH_LONG).show();
+                                            finish();
+                                        }else {
+                                            progressDialog.dismiss();
+                                            Toast.makeText(getApplicationContext(),"No se pudo registrar el articulo",Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
                             }
-                        }
-                    });
+                        });
+                    }else {
+                        Toast.makeText(getApplicationContext(),"Debe seleccionar el articulo a subir...",Toast.LENGTH_LONG).show();
+                    }
                 }
             });
         }

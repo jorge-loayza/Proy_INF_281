@@ -1,6 +1,7 @@
 package com.example.koko.lapazreciclaje.Activities;
 
 import android.content.Intent;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +24,11 @@ public class CategoriaActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categoria);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarCategoria);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsiongToolbarCategoria);
 
 
         tvTitulo = (TextView) findViewById(R.id.tvTitulo);

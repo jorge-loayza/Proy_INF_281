@@ -1,6 +1,7 @@
 package com.example.koko.lapazreciclaje.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.koko.lapazreciclaje.Activities.EditarArticuloActivity;
 import com.example.koko.lapazreciclaje.Objetos.Articulo;
 import com.example.koko.lapazreciclaje.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -61,7 +65,7 @@ public class ArticulosUsuarioAdapter extends RecyclerView.Adapter<ArticulosUsuar
     public static class ArticulosUsuariosViewHolder extends RecyclerView.ViewHolder{
 
         private TextView tvTituloArticulo,tvDescripcionArticulo;
-        private ImageView articuloImagen,ivEliminar;
+        private ImageView articuloImagen,ivEliminar,ivEditar;
         private View view;
         private Articulo articulo;
 
@@ -71,6 +75,15 @@ public class ArticulosUsuarioAdapter extends RecyclerView.Adapter<ArticulosUsuar
             tvTituloArticulo = (TextView) view.findViewById(R.id.tvTituloArticulo);
             tvDescripcionArticulo = (TextView) view.findViewById(R.id.tvDescripcionArticulo);
             articuloImagen = (ImageView) view.findViewById(R.id.ivArticulo);
+            ivEditar = (ImageView) view.findViewById(R.id.ivEditar);
+            ivEditar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(view.getContext(), EditarArticuloActivity.class);
+                    intent.putExtra("articulo",articulo);
+                    view.getContext().startActivity(intent);
+                }
+            });
             ivEliminar = (ImageView) view.findViewById(R.id.ivEliminar);
             ivEliminar.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -83,6 +96,11 @@ public class ArticulosUsuarioAdapter extends RecyclerView.Adapter<ArticulosUsuar
         private void eliminarArticulo() {
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("articulo");
             databaseReference.child(articulo.getId_articulo()).removeValue();
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+            StorageReference storageReferenceImagen = storageReference.child("Imagenes_Articulos");
+            StorageReference storageReferencePDF = storageReference.child("PDF_Articulos");
+            storageReferenceImagen.child(articulo.getId_articulo()).delete();
+            storageReferencePDF.child(articulo.getId_articulo()).delete();
             Toast.makeText(view.getContext(),"Articulo eliminado.",Toast.LENGTH_LONG).show();
         }
 

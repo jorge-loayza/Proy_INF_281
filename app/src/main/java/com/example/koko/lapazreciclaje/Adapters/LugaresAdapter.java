@@ -76,7 +76,7 @@ public class LugaresAdapter extends RecyclerView.Adapter<LugaresAdapter.LugaresV
             tvNombreLugar.setText(nombre);
         }
         private void setTvDireccionLugar(String direccion){
-            tvNombreLugar.setText(direccion);
+            tvDireccionLugar.setText(direccion);
         }
 
 

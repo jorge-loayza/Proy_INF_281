@@ -95,8 +95,11 @@ public class PerfilFragment extends Fragment {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }else{
-
-                    query = firebaseDatabase.getReference().child("articulo").orderByChild("id_usuario").equalTo(firebaseAuth.getCurrentUser().getUid().toString());
+                    String id = firebaseAuth.getCurrentUser().getUid().toString();
+                    Log.i("datos",id);
+                    query = firebaseDatabase.getReference().child("articulo").orderByChild("id_usuario").equalTo(id);
+                    Log.i("datos",query.getRef().toString());
+                    Log.i("datos","entro");
                     query.keepSynced(true);
                     mostrarArticulosUsuario();
                 }
@@ -107,7 +110,6 @@ public class PerfilFragment extends Fragment {
         listaArticulos = new ArrayList<>();
         articulosUsuarioAdapter = new ArticulosUsuarioAdapter(listaArticulos,getContext());
         rvListaArticulos.setAdapter(articulosUsuarioAdapter);
-
         return view;
     }
 
@@ -153,6 +155,7 @@ public class PerfilFragment extends Fragment {
 
     private void mostrarArticulosUsuario() {
         listaArticulos.clear();
+        Log.i("datos",query.getRef().toString());
         query.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {

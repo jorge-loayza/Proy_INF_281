@@ -7,24 +7,25 @@ import java.io.Serializable;
  */
 
 public class Articulo implements Serializable{
-    private String titulo,decripcion,contenido,imagen,id_usuario,id_articulo;
+    private String titulo,decripcion,imagen,id_usuario,id_articulo,pdf;
 
     public Articulo() {
     }
 
+    public Articulo(String titulo, String decripcion, String imagen, String id_usuario, String id_articulo, String pdf) {
+        this.titulo = titulo;
+        this.decripcion = decripcion;
+        this.imagen = imagen;
+        this.id_usuario = id_usuario;
+        this.id_articulo = id_articulo;
+        this.pdf = pdf;
+    }
 
     public String getTitulo() {
         return titulo;
     }
 
-    public Articulo(String titulo, String decripcion, String contenido, String imagen, String id_usuario, String id_articulo) {
-        this.titulo = titulo;
-        this.decripcion = decripcion;
-        this.contenido = contenido;
-        this.imagen = imagen;
-        this.id_usuario = id_usuario;
-        this.id_articulo = id_articulo;
-    }
+
 
     public String getId_usuario() {
         return id_usuario;
@@ -46,14 +47,6 @@ public class Articulo implements Serializable{
         this.decripcion = decripcion;
     }
 
-    public String getContenido() {
-        return contenido;
-    }
-
-    public void setContenido(String contenido) {
-        this.contenido = contenido;
-    }
-
     public String getImagen() {
         return imagen;
     }
@@ -68,5 +61,13 @@ public class Articulo implements Serializable{
 
     public void setId_articulo(String id_articulo) {
         this.id_articulo = id_articulo;
+    }
+
+    public String getPdf() {
+        return pdf;
+    }
+
+    public void setPdf(String pdf) {
+        this.pdf = pdf;
     }
 }

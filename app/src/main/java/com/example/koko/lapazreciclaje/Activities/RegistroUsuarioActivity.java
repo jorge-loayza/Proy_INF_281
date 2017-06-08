@@ -71,7 +71,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity implements View.O
         etNombres.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus){
+                /*if (!hasFocus){
                     txtInputNombres.setErrorEnabled(false);
                     if (validateName(etNombres.getText().toString().trim())){
                         sw = true;
@@ -81,24 +81,24 @@ public class RegistroUsuarioActivity extends AppCompatActivity implements View.O
                     }
                 }else {
                     txtInputNombres.setErrorEnabled(false);
-                }
+                }*/
             }
         });
 
         etApellidos.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus){
+                /*if (!hasFocus){
                     txtInputApellidos.setErrorEnabled(false);
                     if (validateName(etApellidos.getText().toString().trim())){
                         sw2 = true;
                     }else {
                         txtInputApellidos.setError("Apellido invalido.");
-                        sw2 = false;
+                        sw2 = true;
                     }
                 }else {
                     txtInputNombres.setErrorEnabled(false);
-                }
+                }*/
             }
         });
 
@@ -151,7 +151,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity implements View.O
         progressDialog.setMessage("Registrando Usuario");
 
         if (!TextUtils.isEmpty(nombre) && !TextUtils.isEmpty(apellidos) && !TextUtils.isEmpty(correo) && !TextUtils.isEmpty(contrasena)){
-            if (sw && sw2 && sw3){
+            if (true){
                 if (validatePassword(contrasena)){
 
                     progressDialog.show();

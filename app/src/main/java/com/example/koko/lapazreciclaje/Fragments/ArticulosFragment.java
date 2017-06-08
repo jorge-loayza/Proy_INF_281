@@ -62,17 +62,15 @@ public class ArticulosFragment extends Fragment {
     public void onStart() {
         super.onStart();
         mostrarArticulos();
-
-
     }
 
     private void mostrarArticulos() {
         listaArticulos.clear();
+        articulosAdapter.notifyDataSetChanged();
         databaseReferenceArticulos.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Articulo articulo = dataSnapshot.getValue(Articulo.class);
-                Log.i("datos",articulo.getId_articulo());
                 Boolean w = true;
                 for (Articulo art :
                         listaArticulos) {

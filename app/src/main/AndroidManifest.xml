@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.koko.lapazreciclaje">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".LaPazReciclaje"
         android:allowBackup="true"
@@ -22,28 +25,35 @@
         <activity
             android:name=".Activities.CategoriaActivity"
             android:parentActivityName=".Activities.NavigationActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/SinActionBar"/>
         <activity
             android:name=".Activities.MaterialActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.RegistroUsuarioActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/SinActionBar" />
         <activity
             android:name=".Activities.LogInActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/SinActionBar" />
         <activity
             android:name=".Activities.RedactarArticuloActivity"
             android:parentActivityName=".Activities.NavigationActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".Activities.PuntosActivity" />
+            android:screenOrientation="portrait"
+            android:theme="@style/SinActionBar" />
+        <activity android:name=".Activities.PuntosActivity"></activity>
         <activity
             android:name=".Activities.LugaresActivity"
-            android:parentActivityName=".Activities.CategoriaActivity" />
-        <activity android:name=".Activities.ArticuloActivity"
-            android:parentActivityName=".Activities.NavigationActivity"></activity>
+            android:parentActivityName=".Activities.CategoriaActivity"
+            android:theme="@style/SinActionBar"/>
+        <activity
+            android:name=".Activities.ArticuloActivity"
+            android:parentActivityName=".Activities.NavigationActivity"
+            android:theme="@style/SinActionBar" />
+        <activity android:name=".Activities.EditarArticuloActivity"
+            android:theme="@style/SinActionBar"></activity>
     </application>
 
 </manifest>
